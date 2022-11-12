@@ -1,4 +1,4 @@
-# Frontend Central Logging API
+# Documentation
 service api to get logging by day and monthly from elasticsearch central-logging
 
 Prequirement:
