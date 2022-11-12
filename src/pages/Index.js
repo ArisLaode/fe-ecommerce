@@ -1,12 +1,23 @@
-import {Layout , Row} from 'antd';
+import React, { useState, useEffect } from 'react';
+import {Layout , Row, Col} from 'antd';
 import HeaderApp from "../components/Header";
 import FooterApp from "../components/Footer";
+import Rest from "../utils/Rest";
+import {read} from '../utils/Config';
 
 const { Content } = Layout;
 
 function Index() {
-  return (
-    <Layout style={{ minHeight: '95vh' }}>
+
+const [data, setData] = useState([])
+    useEffect(() => {
+        Rest.get(read).then((response) => {
+            setData(response);
+        });
+        }, []);
+    if (!data) return null;
+    return (
+        <Layout style={{ minHeight: '95vh' }}>
       <HeaderApp />
       <Content
       style={{
@@ -15,13 +26,23 @@ function Index() {
       >
         <div className="site-layout-content">
         <Row gutter={16}>
-            Page Index Product
+            <Col>
+                <p>
+                    {data.id}
+                </p>
+                <p>
+                    {data.name}
+                </p>
+                <p>
+                    {data.description}
+                </p>
+            </Col>
         </Row>
         </div>
       </Content>
         <FooterApp />
-          </Layout>
-  );
+      </Layout>
+      );
 }
 
 
