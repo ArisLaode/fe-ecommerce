@@ -5,7 +5,7 @@ Prequirement:
 - NodeJS version d18.11.0
 - Docker version 20.10.7
 
-# Running project via bash script:
+Running project via bash script:
 
 * Install packages:
 
