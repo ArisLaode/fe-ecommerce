@@ -1,5 +1,5 @@
-const baseUrl = "http://127.0.0.1:5000";
-const read = `${baseUrl}`;
+const baseUrl = "http://0.0.0.0:8082";
+const read = `${baseUrl}/api/v1/product`;
 
 export {
     read
